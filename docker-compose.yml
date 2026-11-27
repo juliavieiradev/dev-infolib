@@ -1,0 +1,23 @@
+services:
+  # web:
+  #   image: my-web-app:latest
+  #   ports:
+  #     - "80:80"
+  #   environment:
+  #     - ENV=production
+  #   depends_on:
+  #     - db
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: infolib-admin
+      POSTGRES_PASSWORD: infolib-password
+      POSTGRES_DB: infolib-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
